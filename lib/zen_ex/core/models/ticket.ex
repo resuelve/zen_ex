@@ -160,5 +160,5 @@ defmodule ZenEx.Model.Ticket do
   def _desc_to_comment(tickets) when is_list(tickets), do: Enum.map(tickets, &_desc_to_comment(&1))
 
   @spec _desc_to_comment(%Ticket{}) :: %Ticket{}
-  def _desc_to_comment(%Ticket{} = ticket), do: Map.merge(ticket, %{comment: %{public: ticket.is_public, body: ticket.description}})
+  def _desc_to_comment(%Ticket{} = ticket), do: Map.merge(ticket, %{comment: %{public: false, body: ticket.description}})
 end
