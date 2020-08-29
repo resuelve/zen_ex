@@ -162,6 +162,7 @@ defmodule ZenEx.Model.Ticket do
   @spec _desc_to_comment(%Ticket{}) :: %Ticket{}
   def _desc_to_comment(%Ticket{} = ticket) do
     ticket
+    |> Map.from_struct()
     |> Enum.reduce(%{}, fn {k, v}, acc -> 
       if not is_nil(v) do
         Map.put(acc, k, v)
