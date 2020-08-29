@@ -170,7 +170,7 @@ defmodule ZenEx.Model.Ticket do
         acc
       end
     end)
-    |> Map.put(:comment, %{public: Map.get(ticket, :is_public, false), body: Map.get(ticket, :description, ".")})
+    |> Map.put(:comment, %{public: Map.get(ticket, :is_public) || false, body: Map.get(ticket, :description) || "."})
     |> Map.delete(:description)
   end
 end
